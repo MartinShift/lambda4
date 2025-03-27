@@ -34,7 +34,7 @@
   "async_queue": {
     "resource_type": "sqs_queue",
     "fifo_queue": false,
-    "visibility_timeout": 30,
+    "visibility_timeout": 120,
     "message_retention_period": 345600,
     "receive_message_wait_time_seconds": 0,
     "tags": {}
