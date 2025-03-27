@@ -14,7 +14,13 @@
             "dynamodb:DeleteItem",
             "ssm:PutParameter",
             "ssm:GetParameter",
-            "kms:Decrypt"
+            "kms:Decrypt",
+            "sqs:ReceiveMessage",
+            "sqs:DeleteMessage",
+            "sqs:GetQueueAttributes",
+            "sns:Publish",
+            "sns:Subscribe",
+            "sns:Unsubscribe"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -23,6 +29,19 @@
       "Version": "2012-10-17"
     },
     "resource_type": "iam_policy",
+    "tags": {}
+  },
+  "async_queue": {
+    "resource_type": "sqs_queue",
+    "fifo_queue": false,
+    "visibility_timeout": 30,
+    "message_retention_period": 345600,
+    "receive_message_wait_time_seconds": 0,
+    "tags": {}
+  },
+  "lambda_topic": {
+    "resource_type": "sns_topic",
+    "region": "eu-west-1",
     "tags": {}
   }
 }
